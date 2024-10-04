@@ -24,3 +24,5 @@ const HOST = process.env.HOST || "localhost";
 const server = app.listen(PORT, HOST, () => {
   console.log(`Server running at http://${HOST}:${PORT}`);
 });
+
+server.setTimeout(200000);
