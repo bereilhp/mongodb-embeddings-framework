@@ -12,6 +12,7 @@
   "author": "pb",
   "license": "MIT",
   "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.664.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "morgan": "^1.10.0"

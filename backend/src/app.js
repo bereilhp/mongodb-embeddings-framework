@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import cohereRoutes from "./routes/cohereRoutes.js";
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ app.get("/", (req, res) => {
     message: "Server is running and ready to handle embedding requests!",
   });
 });
+
+app.use("/api/cohere", cohereRoutes);
 
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || "localhost";
