@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import cohereRoutes from "./routes/cohereRoutes.js";
+import openaiRoutes from "./routes/openaiRoutes.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/cohere", cohereRoutes);
+app.use("/api/openai", openaiRoutes);
 
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || "localhost";
