@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cohereRoutes from "./routes/cohereRoutes.js";
 import openaiRoutes from "./routes/openaiRoutes.js";
 import huggingfaceRoutes from "./routes/huggingfaceRoutes.js";
+import mongodbRoutes from "./routes/mongodbRoutes.js";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 app.use("/api/cohere", cohereRoutes);
 app.use("/api/openai", openaiRoutes);
 app.use("/api/huggingface", huggingfaceRoutes);
+app.use("/api/mongodb", mongodbRoutes);
 
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || "localhost";
