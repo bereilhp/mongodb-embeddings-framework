@@ -40,7 +40,7 @@ router.post("/embed-field", async (req, res) => {
     for (const doc of documents) {
       const textChunk = doc[fieldName];
 
-      if (textChunk && !doc.embeddings) {
+      if (textChunk && !doc.embeddings_openai) {
         try {
           const embedding = await generateOpenAIEmbedding([textChunk]);
 
@@ -48,10 +48,10 @@ router.post("/embed-field", async (req, res) => {
             .collection(collectionName)
             .updateOne(
               { _id: doc._id },
-              { $set: { embeddings: embedding[0] } }
+              { $set: { embeddings_openai: embedding[0] } }
             );
 
-          updatedDocuments.push({ ...doc, embeddings: embedding[0] });
+          updatedDocuments.push({ ...doc, embeddings_openai: embedding[0] });
         } catch (error) {
           console.error(
             `Error generating embedding for document ${doc._id}:`,
